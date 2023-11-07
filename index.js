@@ -10,11 +10,12 @@ mongoDB();
 import cors from "cors";
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
-app.use(express.json());
 app.use("/api", router);
 app.use("/api", disp_router);
 app.use("/api", order_router);
